@@ -1,28 +1,54 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Drogas v-bind:drogas="drogas" v-on:del-droga="deleteDroga"/>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import Drogas from './components/Drogas.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Drogas
+  },
+  data(){
+    return {
+      drogas: [
+        {
+          id: 1,
+          title: "paco",
+          completed: true
+        },{
+          id: 2,
+          title: "fafafa",
+          completed: true
+        },{
+          id: 3,
+          title: "fasuli",
+          completed: false
+        }
+      ]
+    }
+  },
+  methods: {
+    deleteDroga(id) {
+      this.drogas = this.drogas.filter(droga => droga.id !== id);
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
 }
 </style>
