@@ -1,29 +1,5 @@
-# hello-world
 
-## Project setup
-```
-npm install
-```
+Repositorio de TP1 - Arquitectura de Aplicaciones Web - FCEN UBA
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Basado en https://github.com/prograhammer/vue-pizza como starter.
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

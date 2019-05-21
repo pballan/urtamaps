@@ -1,54 +1,37 @@
-<template>
-  <div id="app">
-    <Drogas v-bind:drogas="drogas" v-on:del-droga="deleteDroga"/>
-  </div>
+<template lang="pug">
+  #app
+    component(:is="component")
+      slot
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import Drogas from './components/Drogas.vue'
+import PublicLayout from '@/layouts/public/main.vue'
+import DefaultLayout from '@/layouts/default/main.vue'
 
 export default {
-  name: 'app',
+  name: 'App',
+
   components: {
-    Drogas
+    PublicLayout,
+    DefaultLayout
   },
-  data(){
-    return {
-      drogas: [
-        {
-          id: 1,
-          title: "paco",
-          completed: true
-        },{
-          id: 2,
-          title: "fafafa",
-          completed: true
-        },{
-          id: 3,
-          title: "fasuli",
-          completed: false
-        }
-      ]
+
+  computed: {
+    component () {
+      return this.$store.state.common.layout
     }
   },
-  methods: {
-    deleteDroga(id) {
-      this.drogas = this.drogas.filter(droga => droga.id !== id);
-    }
+
+  mounted () {
+    // Update page title.
+    this.$store.watch((state) => {
+      return state.common.title
+    }, (title) => {
+      document.title = title
+      console.log('title updated')
+    }, {
+      deep: true
+    })
   }
 }
 </script>
-
-<style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.4;
-}
-</style>
