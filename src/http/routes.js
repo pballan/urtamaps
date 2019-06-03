@@ -19,7 +19,7 @@ const routes = [
     name: 'home',
     path: '/',
     component: dashboard,
-    title: 'Dashboard',
+    title: 'Maps',
     layout: 'DefaultLayout',
     isPublic: false
   },

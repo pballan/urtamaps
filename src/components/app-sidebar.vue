@@ -29,9 +29,9 @@
 
     v-divider
     v-list(dark)
-      v-list-tile(ripple :to="{ name: 'dashboard' }")
+      v-list-tile(ripple :to="{ name: 'maps' }")
         v-list-tile-action
-          v-icon dashboard
+          v-icon maps
         v-list-tile-content
           v-list-tile-title Maps
 

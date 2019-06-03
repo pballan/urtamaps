@@ -9,6 +9,7 @@ import App from './app'
 import Loading from './components/loading'
 import Appbar from './components/app-bar'
 import Appfooter from './components/app-footer'
+import * as VueGoogleMaps from "vue2-google-maps"
 
 Vue.config.productionTip = false
 
@@ -30,6 +31,13 @@ Vue.use(Vuetify, {
     accent: '#805441'
   }
 })
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyA3rMB8Pr100f9ASnTV1XAtxDE2GTNZ3sU',
+    libraries: 'places', 
+  },
+})
+
 
 // Styles
 require('./styles/scss/main.scss')

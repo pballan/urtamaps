@@ -6,7 +6,10 @@ v-container.my-dashboard(
   v-bind:grid-list-sm="$vuetify.breakpoint.smAndDown"
   v-bind:grid-list-lg="$vuetify.breakpoint.mdAndUp"
 )
+
+  
   v-layout(row wrap)
+    
 
     // Top Row
     v-flex(d-flex xs12 sm12 md6)
@@ -16,117 +19,32 @@ v-container.my-dashboard(
         v-card-text(style="position: relative; height: 100%; max-height: 400px;")
           chart(style="height: 100%;")
     v-flex(d-flex xs12 sm12 md6)
-      v-card.my-dashboard__pizza-status
-        v-card-title
-          .title Status
-        v-card-text
-          v-layout(row wrap)
-            v-flex(xs4)
-              .sub-title Order
-            v-flex(xs4)
-              .sub-title Prep
-            v-flex(xs4)
-              .sub-title Delivery
-            v-flex(d-flex xs4)
-              v-progress-circular.my-dashboard__order(
-                :size="100"
-                :width="15"
-                :rotate="360"
-                :value="45"
-                color="accent"
-              )
-                | 45%
-
-            v-flex(d-flex xs4)
-              v-progress-circular(
-                :size="100"
-                :width="15"
-                :rotate="360"
-                :value="75"
-                color="primary"
-              )
-                | 75%
-
-            v-flex(d-flex xs4)
-              v-progress-circular(
-                :size="100"
-                :width="15"
-                :rotate="360"
-                :value="15"
-                color="secondary"
-              )
-                | 15%
-            v-flex(d-flex xs12)
-              line-chart(style="height: 200px; width: 100%;")
-
-    // Bottom Row
-    v-flex(d-flex xs12 sm12 md6)
-      v-card
-        v-card-title
-          .title(style="margin-bottom: 47px;") Todo
-        v-date-picker(
-          v-model="date"
-          min="2016-06-15"
-          max="2018-03-20"
-          full-width
-          :event-color="date => date[9] % 2 ? 'red' : 'yellow'"
-          :events="functionEvents"
-        )
-    v-flex(d-flex xs12 sm12 md6)
-      v-card
-        v-card-media(src="static/images/mountains.png" height="200px")
-          v-layout.my-dashboard__media(column)
-            v-card-title(class="white--text pl-5 pt-5")
-              .display-1.pl-5.pt-5 Main Contacts
-        v-list(two-line)
-          v-list-tile(@click="")
-            v-list-tile-action
-              v-icon phone
-            v-list-tile-content
-              v-list-tile-title (650) 555-1234
-              v-list-tile-sub-title Mobile
+      <google-map />
 
 </template>
 
 <script>
-import store from './store' // eslint-disable-line no-unused-vars
+import {gmapApi} from 'vue2-google-maps'
 import Chart from './components/chart'
 import LineChart from './components/line-chart'
+import GoogleMap from "../../components/GoogleMap";
+
+
 
 export default {
-  name: 'Dashboard',
+  name: 'Maps',
 
   components: {
     Chart,
-    LineChart
+    LineChart,
+    GoogleMap
   },
 
   data () {
     return {
-      test: this.$store.state.dashboard.test,
       date: '2018-05-21'
     }
   },
-
-  async mounted() {
-    try {
-      const google = await gmapsInit();
-      const geocoder = new google.maps.Geocoder();
-      const map = new google.maps.Map(this.$el);
-
-      geocoder.geocode({ address: 'Austria' }, (results, status) => {
-        if (status !== 'OK' || !results[0]) {
-          throw new Error(status);
-        }
-
-        map.setCenter(results[0].geometry.location);
-        map.fitBounds(results[0].geometry.viewport);
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  },
-
   methods: {
     updateTest () {
       this.test++
