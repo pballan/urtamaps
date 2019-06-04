@@ -62,6 +62,7 @@
       title: '',
       description: '',
       select: null,
+      // esto dsp deberia ser un get a la base y actualizarlo con los cambios
       categories: [
         'Cafeteria',
         'Libreria',
@@ -69,7 +70,8 @@
       ],
       longitude: null,
       latitude: null,
-      image: ''
+      image: '',
+      icon: null
     }),
 
     computed: {
@@ -87,6 +89,19 @@
 
     methods: {
       submit () {
+        let submitedMarker = {
+          position: { 
+            lat: parseFloat(this.latitude),
+            lng: parseFloat(this.longitude)
+          },
+          title: this.title,
+          description: this.description,
+          category: this.select,
+          icon: this.icon,
+          img_provided: (this.image != '' || this.image != undefined),
+          image: this.image,
+        };
+        this.$emit('newMarker', submitedMarker);
         this.$v.$touch()
       },
       clear () {
@@ -101,10 +116,12 @@
         return errors
       },
       iconLogger(selectedIcon) {
-        console.log('selected', selectedIcon)
+        this.icon = 'fa ' + selectedIcon.className;
+        console.log('selected', selectedIcon);
       },
       setCoordinates(coords){
-        console.log(coords.y) // VIVA PERON
+        this.latitude = coords.lat();
+        this.longitude = coords.lng();
       },
     }
   }

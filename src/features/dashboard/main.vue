@@ -12,10 +12,10 @@ v-container.my-dashboard(
       v-card
         v-card-title
           .title Sales
-        v-card-text(style="position: relative; height: 100%; max-height: 400px;")
-          chart( ref="sales" style="height: 100%;")
+        v-card-text(style="position: relative; height: 100%; max-height: 700px;")
+          chart( ref="sales" @newMarker="addMarker" style="height: 100%;")
     v-flex(d-flex xs12 sm12 md6)
-      <google-map @setCoordinates="getCoordinates" />
+      <google-map ref="map" @setCoordinates="getCoordinates" />
 
 </template>
 
@@ -40,6 +40,9 @@ export default {
   methods: {
     getCoordinates(coords){
       this.$refs.sales.setCoordinates(coords)
+    },
+    addMarker(aMarkerObject){
+      this.$refs.map.addMarker(aMarkerObject)
     }
   }
 }
