@@ -1,6 +1,6 @@
 import store from '@/store'
 
-store.registerModule('dashboard', {
+store.registerModule('maps', {
   namespaced: true,
 
   // State loaded when this component is first loaded.

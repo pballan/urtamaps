@@ -27,7 +27,7 @@
         v-list-tile-content
           v-list-tile-title Maps
 
-      v-list-group(prepend-icon='build')
+      v-list-tile(prepend-icon='build' ripple :to="{ name: 'maps' }")
         v-list-tile(slot="activator" ripple)
           v-list-tile-content
             v-list-tile-title Tools
@@ -38,24 +38,7 @@
           v-list-tile-content
             v-list-tile-title Rate Adjuster
 
-      v-list-group(prepend-icon='assessment')
-        v-list-tile(slot="activator" ripple)
-          v-list-tile-content
-            v-list-tile-title Reports
-        v-list-tile(ripple :to="{ name: 'laborReport' }")
-          v-list-tile-content
-            v-list-tile-title Labor Report
-        v-list-tile(ripple :to="{ name: 'earningsReport' }")
-          v-list-tile-content
-            v-list-tile-title Earnings
 
-      v-list-group(prepend-icon='more_horiz')
-        v-list-tile(slot="activator" ripple)
-          v-list-tile-content
-            v-list-tile-title More
-        v-list-tile(ripple :to="{ name: 'importMyData' }")
-          v-list-tile-content
-            v-list-tile-title More Here
 
       v-list-tile(@click="logout()" ripple)
         v-list-tile-action
@@ -64,6 +47,16 @@
           v-list-tile-title Log out
 </template>
 
+
+/**
+      v-list-group(prepend-icon='more_horiz')
+        v-list-tile(slot="activator" ripple)
+          v-list-tile-content
+            v-list-tile-title More
+        v-list-tile(ripple :to="{ name: 'importMyData' }")
+          v-list-tile-content
+            v-list-tile-title More Here 
+             */
 <script>
 import auth from '@/auth/helpers'
 

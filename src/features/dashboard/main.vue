@@ -21,10 +21,7 @@ v-container.my-dashboard(
 
 <script>
 import Chart from './components/chart'
-import LineChart from './components/line-chart'
-import GoogleMap from "../../components/GoogleMap";
-
-
+import GoogleMap from "./components/gmap";
 
 
 export default {
@@ -32,7 +29,6 @@ export default {
 
   components: {
     Chart,
-    LineChart,
     GoogleMap
   },
   mounted(){
