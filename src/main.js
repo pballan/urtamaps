@@ -8,7 +8,6 @@ import URLSearchParams from 'url-search-params'
 import App from './App.vue'
 import Loading from './components/loading'
 import Appbar from './components/app-bar'
-import Appfooter from './components/app-footer'
 import * as VueGoogleMaps from "vue2-google-maps"
 
 Vue.config.productionTip = false
@@ -46,7 +45,6 @@ require('./styles/stylus/main.styl')
 // Global Components
 Vue.component('loading', Loading)
 Vue.component('Appbar', Appbar)
-Vue.component('Appfooter', Appfooter)
 
 /* eslint-disable no-new */
 new Vue({

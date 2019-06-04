@@ -51,6 +51,7 @@ export default {
     },
     setPlace(event) {
       this.currentPlace = event.qa;
+      this.$emit('setCoordinates', this.currentPlace);
     },
     addMarker() {
       if (this.currentPlace) {

@@ -15,7 +15,6 @@ Vue.use(Router)
 function guardRoute (to, from, next) {
   // work-around to get to the Vuex store (as of Vue 2.0)
   const auth = router.app.$options.store.state.auth
-  console.log("asdasdsad" + JSON.stringify(auth));
   if (!auth.isLoggedIn) {
     next({path: '/login', query: { redirect: to.fullPath }})
   } else {

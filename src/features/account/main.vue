@@ -121,7 +121,6 @@ v-container(fluid fill-height style="padding: 0;")
 </template>
 
 <script>
-import AppFooter from '@/components/app-footer'
 import AppBar from '@/components/app-bar'
 import Service from './service'
 import AddressEdit from './components/address-edit'
@@ -133,7 +132,6 @@ export default {
 
   components: {
     AppBar,
-    AppFooter,
     Gravatar
   },
 

@@ -13,9 +13,9 @@ v-container.my-dashboard(
         v-card-title
           .title Sales
         v-card-text(style="position: relative; height: 100%; max-height: 400px;")
-          chart(style="height: 100%;")
+          chart( ref="sales" style="height: 100%;")
     v-flex(d-flex xs12 sm12 md6)
-      <google-map />
+      <google-map @setCoordinates="getCoordinates" />
 
 </template>
 
@@ -32,14 +32,15 @@ export default {
     GoogleMap
   },
   mounted(){
-
   },
   data () {
     return {
     }
   },
   methods: {
-
+    getCoordinates(coords){
+      this.$refs.sales.setCoordinates(coords)
+    }
   }
 }
 </script>

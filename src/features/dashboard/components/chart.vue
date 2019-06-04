@@ -3,6 +3,11 @@
 import { Bar } from 'vue-chartjs'
 
 export default {
+  methods: {
+    setCoordinates(coords){
+      console.log(coords) // VIVA PERON
+    }
+  },
   extends: Bar,
   mounted () {
     // Overwriting base render method with actual data.

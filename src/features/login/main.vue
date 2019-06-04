@@ -17,10 +17,6 @@
               | Welcome to Urtamaps!
           v-flex(xs12)
             v-card.my-login__card
-              v-card-title.my-login__card-title(primary-title)
-                v-avatar(:size="100")
-                  img(src='~/@/assets/images/profile.jpg' alt='Avatar')
-
               v-card-text
                 v-form
                   v-text-field(

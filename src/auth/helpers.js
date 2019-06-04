@@ -34,7 +34,6 @@ export default {
     })
       .then((response) => {
         auth.storeToken(response)
-
         if (redirect) router.push({ name: redirect })
         return response
       })
