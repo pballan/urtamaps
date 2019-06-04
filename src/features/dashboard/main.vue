@@ -24,10 +24,10 @@ v-container.my-dashboard(
 </template>
 
 <script>
-import {gmapApi} from 'vue2-google-maps'
 import Chart from './components/chart'
 import LineChart from './components/line-chart'
 import GoogleMap from "../../components/GoogleMap";
+
 
 
 
@@ -39,21 +39,15 @@ export default {
     LineChart,
     GoogleMap
   },
+  mounted(){
 
+  },
   data () {
     return {
-      date: '2018-05-21'
     }
   },
   methods: {
-    updateTest () {
-      this.test++
-      this.$store.dispatch('dashboard/updateTest', this.test)
-    },
-    functionEvents (date) {
-      const [,, day] = date.split('-')
-      return parseInt(day, 10) % 3 === 0
-    }
+
   }
 }
 </script>

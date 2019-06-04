@@ -2,9 +2,12 @@
   <div>
     <br>
     <gmap-map
+      @load="init()"
       :center="center"
       :zoom="12"
       style="width:100%;  height: 400px;"
+      :clickable="true"
+      @click="setPlace($event)"
     >
     <GmapMarker
         :key="index"
@@ -40,8 +43,14 @@ export default {
 
   methods: {
     // receives a place object via the autocomplete component
-    setPlace(place) {
-      this.currentPlace = place;
+    init(center, markers, places, currentPlace){
+        this.center = center;
+        this.markers = markers;
+        this.places = places;
+        this.currentPlace = currentPlace;
+    },
+    setPlace(event) {
+      this.currentPlace = event.qa;
     },
     addMarker() {
       if (this.currentPlace) {
