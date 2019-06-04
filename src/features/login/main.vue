@@ -8,15 +8,10 @@
       app
       dense
     )
-      v-btn(icon)
-        img.my-login__logo(src='~/@/assets/images/logo.svg' alt='VuePizza Logo')
-      v-spacer
+
     v-layout(justify-center align-center)
       v-flex.text-xs-center(xs12 lg6)
         v-layout(row wrap)
-          v-flex(xs12)
-            .my-login__logo-name
-              img(src='~/@/assets/images/logo-name.svg' alt='VueExample')
           v-flex(xs12)
             .my-login__subheading.subheading
               | Welcome to Urtamaps!
@@ -81,7 +76,7 @@ export default {
         password: this.credentials.password
       }
 
-      auth.fakeLogin(credentials, 'dashboard')
+      auth.fakeLogin(credentials, 'maps')
         .then((data) => {
           this.loading = false
         })

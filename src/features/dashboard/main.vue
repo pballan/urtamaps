@@ -5,13 +5,9 @@ v-container.my-dashboard(
   text-xs-center
   v-bind:grid-list-sm="$vuetify.breakpoint.smAndDown"
   v-bind:grid-list-lg="$vuetify.breakpoint.mdAndUp"
-)
-
-  
+) 
   v-layout(row wrap)
-    
-
-    // Top Row
+  
     v-flex(d-flex xs12 sm12 md6)
       v-card
         v-card-title

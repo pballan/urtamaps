@@ -16,7 +16,7 @@ const routes = [
     isPublic: true
   },
   {
-    name: 'home',
+    name: 'maps',
     path: '/',
     component: dashboard,
     title: 'Maps',

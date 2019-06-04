@@ -7,14 +7,6 @@
     touchless
     dark
   )
-    v-layout(justify-center wrap)
-      // img.my-sidebar__backdrop(src='~/@/assets/images/backdrop.jpg' alt='Vue Pizza')
-      .my-sidebar__hero-pattern
-
-    v-divider
-
-    v-avatar.my-sidebar__avatar(:size="70")
-      img(src='~/@/assets/images/profile.jpg' alt='Avatar')
 
     v-list(dark)
       v-list-group(prepend-icon='person')
@@ -27,7 +19,7 @@
           v-list-tile-content
             v-list-tile-title Account
 
-    v-divider
+
     v-list(dark)
       v-list-tile(ripple :to="{ name: 'maps' }")
         v-list-tile-action
