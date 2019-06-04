@@ -19,22 +19,6 @@
         @blur="$v.description.$touch()"
       ></v-text-field>
       <v-text-field
-        v-model="latitude"
-        :error-messages="latitudeErrors"
-        label="Latitude"
-        required
-        @input="$v.latitude.$touch()"
-        @blur="$v.latitude.$touch()"
-      ></v-text-field>
-      <v-text-field
-        v-model="longitude"
-        :error-messages="longitudeErrors"
-        label="Longitude"
-        required
-        @input="$v.longitude.$touch()"
-        @blur="$v.longitude.$touch()"
-      ></v-text-field>
-      <v-text-field
         v-model="image"
         label="Image path"
         @input="$v.image.$touch()"
@@ -67,16 +51,10 @@
     },
     
     mixins: [validationMixin],
-    methods: {
-      setCoordinates(coords){
-        console.log(coords) // VIVA PERON
-      }
-    },
+
     validations: {
       title: { required },
       description: { required },
-      latitude: { required },
-      longitude: { required },
       select: { required }
     },
 
@@ -89,8 +67,8 @@
         'Libreria',
         'Plaza'
       ],
-      longitude: '',
-      latitude: '',
+      longitude: null,
+      latitude: null,
       image: ''
     }),
 
@@ -104,17 +82,11 @@
       descriptionErrors () {
         return this.fieldErrors('description', this.$v.description)
       },
-      latitudeErrors () {
-        return this.fieldErrors('latitude', this.$v.latitude)
-      },
-      longitudeErrors () {
-        return this.fieldErrors('longitude', this.$v.longitude)
-      }
+
     },
 
     methods: {
       submit () {
-        alert(this.$v.title)
         this.$v.$touch()
       },
       clear () {
@@ -130,6 +102,9 @@
       },
       iconLogger(selectedIcon) {
         console.log('selected', selectedIcon)
+      },
+      setCoordinates(coords){
+        console.log(coords.y) // VIVA PERON
       },
     }
   }
